@@ -1,6 +1,6 @@
-function httpGet(username="")
+function httpGet(username="", url="/get_viewers")
 {
-  let url = "/get_viewers?username="+username;
+  url = `${url}?username=${username}`;
   let xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", url, false ); // false for synchronous request. I know, I know....
   xmlHttp.send( null );
@@ -10,6 +10,7 @@ function httpGet(username="")
 function sendUsername() 
 {
   username = document.getElementById("username").value;
+  document.getElementById("chat").innerHTML = `<iframe src="http://twitch.tv/${username}/chat?popout="></iframe>`;
   update_users(username);
 }
 
@@ -37,7 +38,7 @@ function update_users(username="") {
 
 
   // calculate the size of the boxes based on the number of viewers
-  let num_per_row = Math.floor(window.innerWidth / 150);
+  let num_per_row = Math.floor(window.innerWidth / 2 / 150);
   num_per_row = num_per_row < num_viewers ? num_per_row: num_viewers;
 
   let height = 100 / Math.ceil(num_viewers / num_per_row) - 2;
@@ -76,6 +77,9 @@ function update_users(username="") {
 }
 
 update_users();
+
+username = document.getElementById("username").value;
+document.getElementById("chat").innerHTML = `<iframe src="http://twitch.tv/${username}/chat?popout="></iframe>`;
 
 setInterval( function() { update_users(); }, 10000);
 

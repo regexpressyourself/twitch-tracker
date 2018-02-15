@@ -17,14 +17,26 @@ h1, h2, h3 {
 h2 {
   font-size: 100%;
 }
+iframe {
+  border: none;
+  width: 300px; 
+  max-width: 60vw;
+  max-height: 100vh;
+  height: 98%;
+}
+p {
+  margin: 0;
+}
 
+#the-goodies{
+  display:grid;
+  grid-template-columns: 1fr auto;
+}
 #container {
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding:10px;
-
 }
 
 li {
