@@ -24,6 +24,9 @@ iframe {
   max-height: 100vh;
   height: 98%;
 }
+.message {
+  font-size: 200%;
+}
 p {
   margin: 0;
 }
