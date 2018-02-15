@@ -1,33 +1,35 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <title>Twitch Tracker</title>
+    <title>Twitch Tracker</title>
 
-        <meta name="viewport" 
-              content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Shadows|Roboto|Amatic+SC|Fredericka+the+Great|Patua+One|Oswald">
-        <link rel="stylesheet" 
-              href="./main.css" 
-              type="text/css" media="screen" charset="utf-8">
-    </head>
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Shadows|Roboto|Amatic+SC|Fredericka+the+Great|Patua+One|Oswald">
+    <link rel="stylesheet" 
+          href="./main.css" 
+          type="text/css" media="screen" charset="utf-8">
+  </head>
 
-    <body id="homepage" class="container">
-      <div>
-        <h1>Viewers<span id="num-viewers"></span></h1>        
-        <label for="username">Username</label>
-          
+  <body id="homepage" class="container">
+    <div id="header">
+      <h1>Viewers<span id="num-viewers"></span></h1>        
+      <div class="group">
         <input type="text" name="username" value="" id="username">
-        <button onclick="sendUsername()" >Start Tracking</button>
-        
-      </div>
-        <div id="container">
+        <label for="username">Username</label>
+        <div class="bar">
+          
         </div>
-        <script src="./main.js" charset="utf-7"></script>
+      </div>
 
-    </body>
+    </div>
+    <div id="container"> </div>
+    <script src="./main.js" charset="utf-7"></script>
+
+  </body>
 
 </html>

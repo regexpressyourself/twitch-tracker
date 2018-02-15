@@ -18,7 +18,10 @@ function update_users(username="") {
 
   let user_list = [];
 
-  if (!username) {
+  username = username ? username : document.getElementById("username").value;
+
+  if (!username ) {
+    username = "sscait";
     document.getElementById("username").value = "sscait";
   }
 
@@ -75,3 +78,10 @@ function update_users(username="") {
 update_users();
 
 setInterval( function() { update_users(); }, 10000);
+
+document.querySelector('#username').addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+  if (key === 13) { // 13 is enter
+    update_users();
+  }
+});

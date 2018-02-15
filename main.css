@@ -1,19 +1,21 @@
 body {
-    font-family: 'Oswald', cursive;
-    font-size: 150%;
-    background-color: #FCFEFF;
-    margin: 0;
-    padding: 0;
-    display:grid;
-    height: 100vh;
-    grid-template-rows: 1fr 3fr;
+  font-family: 'Oswald', cursive;
+  font-size: 24px;
+  background-color: #FCFEFF;
+  margin: 0;
+  padding: 0;
+  display:grid;
+  height: 100vh;
+  grid-template-rows: 1fr 3fr;
 }
 
 h1, h2, h3 {
-    font-family: 'Patua One', cursive;
-    font-size: 300%;
-    margin: auto;
-    text-align: center;
+  font-family: 'Patua One', cursive;
+  font-size: 300%;
+  margin: auto;
+}
+h2 {
+  font-size: 100%;
 }
 
 #container {
@@ -22,7 +24,7 @@ h1, h2, h3 {
   flex-wrap: wrap;
   justify-content: center;
   padding:10px;
-  
+
 }
 
 li {
@@ -46,4 +48,96 @@ li *{
 
 .mod {
   font-weight: bold;
+}
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}    
+
+@media only screen and (max-device-width : 768px){
+  body {
+    font-size: 18px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.centered {
+  width: 550px;
+  height: 110px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.group {
+  margin-top: -30px;
+  margin-bottom: 30px;
+  font-size: 120%;
+  width: 70%;
+  overflow: hidden;
+  position: relative;
+}
+
+label {
+  position: absolute;
+  top: 24;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: text;
+  transition: .25s ease;
+}
+
+input {
+  font-size: 150%;
+  font-family: 'Patua One', cursive;
+  display: block;
+  width: 100%;
+  padding-top: 36.6666666667px;
+  border: none;
+  border-radius: 0;
+  transition: .3s ease;
+}
+input:valid ~ label {
+  top: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+input:focus {
+  outline: none;
+}
+input:focus ~ label {
+  top: 0;
+  color: #2196f3;
+}
+input:focus ~ .bar:before {
+  transform: translateX(0);
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #333 inset;
+}
+
+.bar {
+  background: rgba(0, 0, 0, 0.5);
+  content: '';
+  height: 3.6666666667px;
+  transition: .3s ease;
+  position: relative;
+}
+.bar:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  background: #2196f3;
+  transform: translateX(-100%);
+}
+
+::selection {
+  background: rgba(33, 150, 243, 0.3);
 }
