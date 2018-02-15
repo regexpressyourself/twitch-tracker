@@ -1,0 +1,46 @@
+body {
+    font-family: 'Oswald', cursive;
+    font-size: 150%;
+    background-color: #FCFEFF;
+    margin: 0;
+    padding: 0;
+    display:grid;
+    height: 100vh;
+    grid-template-rows: 1fr 3fr;
+}
+h1, h2, h3 {
+    font-family: 'Patua One', cursive;
+    font-size: 300%;
+    margin: auto;
+    text-align: center;
+}
+h1 {
+}
+#container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding:10px;
+  
+}
+li {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  margin: 5px;
+  border-radius: 10px;
+  list-style-type: none;
+  width: 120px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: auto;
+  flex-grow:1;
+}
+.mod {
+  font-weight: bold;
+}
+li *{
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

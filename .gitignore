@@ -1,0 +1,6 @@
+*node_modules
+package-lock.json
+*egg-info*
+quiz_taker/flask
+*__pycache__*
+
