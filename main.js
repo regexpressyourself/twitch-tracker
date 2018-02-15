@@ -87,5 +87,7 @@ document.querySelector('#username').addEventListener('keypress', (e) => {
   let key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
     update_users();
+    username = document.getElementById("username").value;
+    document.getElementById("chat").innerHTML = `<iframe src="https://twitch.tv/${username}/chat?popout="></iframe>`;
   }
 });
