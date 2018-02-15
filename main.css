@@ -56,25 +56,8 @@ li *{
   align-items: center;
 }    
 
-@media only screen and (max-device-width : 768px){
-  body {
-    font-size: 18px;
-  }
-}
-
 * {
   box-sizing: border-box;
-}
-
-.centered {
-  width: 550px;
-  height: 110px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .group {
@@ -141,3 +124,17 @@ input:-webkit-autofill {
 ::selection {
   background: rgba(33, 150, 243, 0.3);
 }
+
+@media screen and (max-width : 768px){
+  body {
+    font-size: 18px;
+  }
+
+}
+@media screen and (max-width : 500px){
+  .group {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
