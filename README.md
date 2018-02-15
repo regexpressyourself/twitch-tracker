@@ -84,7 +84,7 @@ Next, install the dependencies using NPM or Yarn.
 
 ## Contributing
 
-I'm always happy to receive pull requests, questions/issues regarding code, and feature requests on all my projects, even my portfolio! Please feel free to open an issue or submit a pull request.
+I'm always happy to receive pull requests, questions/issues regarding code, and feature requests on all my projects! Please feel free to open an issue or submit a pull request.
 
 **[Back to top](#table-of-contents)**
 
@@ -96,7 +96,7 @@ I'm always happy to receive pull requests, questions/issues regarding code, and 
 
 ## License
 
-My portfolio is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+Twitch Tracker is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 
 **[Back to top](#table-of-contents)**
