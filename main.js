@@ -1,8 +1,8 @@
 function httpGet(username="")
 {
-  theUrl = "/get_viewers?username="+username;
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+  let url = "/get_viewers?username="+username;
+  let xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", url, false ); // false for synchronous request. I know, I know....
   xmlHttp.send( null );
   return xmlHttp.responseText;
 }
@@ -79,8 +79,8 @@ update_users();
 
 setInterval( function() { update_users(); }, 10000);
 
-document.querySelector('#username').addEventListener('keypress', function (e) {
-    var key = e.which || e.keyCode;
+document.querySelector('#username').addEventListener('keypress', (e) => {
+  let key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
     update_users();
   }
