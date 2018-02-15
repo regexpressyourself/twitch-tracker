@@ -15,15 +15,15 @@ if __name__ == '__main__':
 
 @app.route('/')
 def index():
-    return send_file('index.html')
+    return send_from_directory('frontend', 'index.html')
 
 @app.route('/main.css')
 def css_file():
-    return send_file('main.css')
+    return send_from_directory('frontend', 'main.css')
 
 @app.route('/main.js')
 def js_file():
-    return send_file('main.js')
+    return send_from_directory('frontend', 'main.js')
 
 @app.route('/get_viewers', methods=['GET'])
 def get_current_data():
@@ -31,13 +31,6 @@ def get_current_data():
 
     if request.args and len(request.args["username"]) > 0:
         username = request.args["username"]
-        print("WE GOT A USERNAME!!")
-    else:
-        print("we didnt")
-
-    print("============================");
-    print(username);
-    print("============================");
     response = requests.get("https://tmi.twitch.tv/group/user/"+username+"/chatters")
     return json.dumps(response.text)
 
