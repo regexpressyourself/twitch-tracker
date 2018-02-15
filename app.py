@@ -1,7 +1,6 @@
 #!flask/bin/python
 from flask import Flask, request, send_from_directory, \
-        jsonify, make_response, redirect, send_file
-import os
+        jsonify, make_response
 import json
 import requests
 
@@ -13,17 +12,21 @@ if __name__ == '__main__':
 
 # Routes
 
+
 @app.route('/')
 def index():
     return send_from_directory('frontend', 'index.html')
+
 
 @app.route('/main.css')
 def css_file():
     return send_from_directory('frontend', 'main.css')
 
+
 @app.route('/main.js')
 def js_file():
     return send_from_directory('frontend', 'main.js')
+
 
 @app.route('/get_viewers', methods=['GET'])
 def get_current_data():
