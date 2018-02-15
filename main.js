@@ -10,7 +10,7 @@ function httpGet(username="", url="/get_viewers")
 function sendUsername() 
 {
   username = document.getElementById("username").value;
-  document.getElementById("chat").innerHTML = `<iframe src="http://twitch.tv/${username}/chat?popout="></iframe>`;
+  document.getElementById("chat").innerHTML = `<iframe src="https://twitch.tv/${username}/chat?popout="></iframe>`;
   update_users(username);
 }
 
@@ -79,7 +79,7 @@ function update_users(username="") {
 update_users();
 
 username = document.getElementById("username").value;
-document.getElementById("chat").innerHTML = `<iframe src="http://twitch.tv/${username}/chat?popout="></iframe>`;
+document.getElementById("chat").innerHTML = `<iframe src="https://twitch.tv/${username}/chat?popout="></iframe>`;
 
 setInterval( function() { update_users(); }, 10000);
 
