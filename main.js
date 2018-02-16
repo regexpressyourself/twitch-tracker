@@ -58,7 +58,6 @@ function update_users(username="") {
                     </li>`);
   }
 
-  i = 0;
   for (let viewer of moderators) {
     let color = color_array[i++ % 5];
     user_list.push(`<li style="height: ${height}%; 
