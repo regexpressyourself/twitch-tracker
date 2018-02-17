@@ -123,7 +123,7 @@ function updateUsers(username="")
   let i = 0;
   for (let viewer of viewers) {
     let color = color_array[i++ % 5];
-    user_list.push(`<li style="height: ${height}%; 
+    user_list.push(`<li style="min-height: ${height}%; 
                     width=${width}; 
                     background-color: ${color}">
                       <p>${viewer}</p>
@@ -132,7 +132,7 @@ function updateUsers(username="")
 
   for (let viewer of moderators) {
     let color = color_array[i++ % 5];
-    user_list.push(`<li style="height: ${height}%; 
+    user_list.push(`<li style="min-height: ${height}%; 
                     width=${width}; 
                     background-color: ${color}; 
                     font-weight: bold;" 
