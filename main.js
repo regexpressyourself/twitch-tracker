@@ -1,3 +1,35 @@
+let viewer_nums = [];
+let chart = null;
+
+function bootstrap() 
+{
+  // bootstrap initial load
+  updateUsers();
+  username = document.getElementById("username").value;
+  document.getElementById("chat").innerHTML = `<iframe id="iframe" src="https://twitch.tv/${username}/chat?popout="></iframe>`;
+
+  let frame = document.getElementById('iframe');
+    frame.onload = function () {
+        let msg = frame.contentWindow.document.querySelector('.message');
+        msg.style.fontSize = '28px';
+        msg.style.lineHeight = '20px';
+    };
+  // set up the update cycle
+  setInterval( function() { 
+    updateUsers(); 
+    chart.update();
+  }, 10000);
+
+  // add listener to input registering "Enter"
+  document.querySelector('#username').addEventListener('keypress', (e) => {
+    let key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+      sendUsername()
+    }
+  });
+
+}
+
 function httpGet(username="", url="/get_viewers")
 {
   url = `${url}?username=${username}`;
@@ -10,12 +42,52 @@ function httpGet(username="", url="/get_viewers")
 function sendUsername() 
 {
   username = document.getElementById("username").value;
-  document.getElementById("chat").innerHTML = `<iframe src="https://twitch.tv/${username}/chat?popout="></iframe>`;
-  update_users(username);
+  document.getElementById("chat").innerHTML = `<iframe id="iframe" src="https://twitch.tv/${username}/chat?popout="></iframe>`;
+  let frame = document.getElementById('iframe');
+    frame.onload = function () {
+        let msg = frame.contentWindow.document.querySelector('.message');
+        msg.style.fontSize = '28px';
+        msg.style.lineHeight = '20px';
+    };
+  viewer_nums = [];
+  chart = createChart();
+  updateUsers(username);
 }
 
 
-function update_users(username="") {
+function createChart() 
+{
+  return new Chart(document.getElementById("viewer-chart"), {
+    type: 'scatter',
+    data: {
+      datasets: [{ 
+        data: viewer_nums,
+        label: "Viewers",
+        borderColor: "#3e95cd",
+        backgroundColor: "#3e95cd",
+        fill: true,
+        showLine: true
+      }]
+    },
+    options: {   
+      legend: {
+        display: false
+      },
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem) {
+            return tooltipItem.yLabel;
+          }
+        }
+      },
+      maintainAspectRatio: false
+    }
+  });
+
+}
+
+function updateUsers(username="") 
+{
 
   let user_list = [];
 
@@ -70,23 +142,14 @@ function update_users(username="") {
   }
 
 
+  // update the object used for the graph
+  viewer_nums.push({x:viewer_nums.length, y:num_viewers});
+
+  // update the html
   document.getElementById("container").innerHTML = user_list.join("");
   document.getElementById("num-viewers").innerHTML = ": " + num_viewers;
   return;
 }
 
-update_users();
-
-username = document.getElementById("username").value;
-document.getElementById("chat").innerHTML = `<iframe src="https://twitch.tv/${username}/chat?popout="></iframe>`;
-
-setInterval( function() { update_users(); }, 10000);
-
-document.querySelector('#username').addEventListener('keypress', (e) => {
-  let key = e.which || e.keyCode;
-  if (key === 13) { // 13 is enter
-    update_users();
-    username = document.getElementById("username").value;
-    document.getElementById("chat").innerHTML = `<iframe src="https://twitch.tv/${username}/chat?popout="></iframe>`;
-  }
-});
+chart = createChart();
+bootstrap();

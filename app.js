@@ -48,7 +48,13 @@ app.get('/get_viewers', (req, res) => {
     username = req.query["username"]
   }
   response = request.get("https://tmi.twitch.tv/group/user/"+username+"/chatters", (er, resp, bod) => {
-    let result = JSON.parse(bod);
+    let result;
+    try {
+      result = JSON.parse(bod);
+    }
+    catch(error) {
+      return;
+    }
     res.send(result);
   });
 });
