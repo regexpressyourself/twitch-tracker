@@ -1,6 +1,6 @@
 # Twitch Tracker
 
-<img width="500px" src="https://i.imgur.com/tpxIzFn.png" align="right" />
+<img width="500px" src="https://i.imgur.com/T6Ut7mb.png" align="right" />
 
 See who's watching your Twitch stream.
 
