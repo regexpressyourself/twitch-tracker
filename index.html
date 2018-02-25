@@ -28,11 +28,14 @@
 
     </div>
     <div id="graph">
-      <canvas id="viewer-chart" height="100%"></canvas>
+      <p class="stats"><span>Average Viewers (from session start):</span> <span id="total-avg"></span></p>
+      <p class="stats"><span>Average Viewers (last hour):</span> <span id="last-hour-avg"></span></p>
     </div>
     <div id="the-goodies">
       <div id="chat"> </div>
-      <div id="container"> </div>
+      <div id="container"> 
+        <p id="default-text">Hey there! To get started, type in your Twitch username and hit enter.</p>
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" charset="utf-8"></script>
     <script src="./main.js" charset="utf-8"></script>

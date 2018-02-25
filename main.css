@@ -95,6 +95,7 @@ label {
 }
 
 input {
+  background-color: #FCFEFF;
   font-size: 150%;
   font-family: 'Patua One', cursive;
   display: block;
