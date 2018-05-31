@@ -128,8 +128,6 @@ function updateUsers(username="")
     // update the html
     document.getElementById("container").innerHTML = user_list.join("");
     document.getElementById("num-viewers").innerHTML = ": " + num_viewers;
-    document.getElementById("total-avg").innerHTML = total_avg
-    document.getElementById("last-hour-avg").innerHTML = total_avg
     return;
   });
   return;
