@@ -8,14 +8,14 @@ function bootstrap()
   // bootstrap initial load
   updateUsers();
   username = document.getElementById("username").value;
-  document.getElementById("chat").innerHTML = `<iframe id="iframe" src="https://twitch.tv/${username}/chat?popout="></iframe>`;
+  document.getElementById("chat").innerHTML = `<iframe frameborder="0"
+        scrolling="yes"
+        id="chat_embed"
+        src="http://www.twitch.tv/embed/${username}/chat"
+        height="500"
+        width="350">
+</iframe>`;
 
-  let frame = document.getElementById('iframe');
-  frame.onload = function () {
-    let msg = frame.contentWindow.document.querySelector('.message');
-    msg.style.fontSize = '28px';
-    msg.style.lineHeight = '20px';
-  };
   // set up the update cycle
   setInterval( function() { 
     updateUsers(); 
@@ -45,13 +45,14 @@ function httpGet(username="" , callback)
 function sendUsername() 
 {
   username = document.getElementById("username").value;
-  document.getElementById("chat").innerHTML = `<iframe id="iframe" src="https://twitch.tv/${username}/chat?popout="></iframe>`;
-  let frame = document.getElementById('iframe');
-  frame.onload = function () {
-    let msg = frame.contentWindow.document.querySelector('.message');
-    msg.style.fontSize = '28px';
-    msg.style.lineHeight = '20px';
-  };
+  document.getElementById("chat").innerHTML = `<iframe frameborder="0"
+        scrolling="yes"
+        id="chat_embed"
+        src="http://www.twitch.tv/embed/${username}/chat"
+        height="500"
+        width="350">
+</iframe>`;
+    
   total_viewer_nums = [];
   hour_viewer_nums = [];
   updateUsers(username);
@@ -85,10 +86,9 @@ function updateUsers(username="")
     let width = num_viewers < 4 ? `100${100/num_viewers}%` : "150px";
 
     // colors for our viewer boxes
-    let color_array = [ "#5bc0eb", "#fde74c", "#9bc53d", "#e55934", "#fa7921" ];
+    let color_array = [ "#ffb3ba", "#ffdfba", "#ffffba", "#baffc9", "#bae1ff" ];
 
     // create our li elements
-    console.log("end1");
     let i = 0;
     for (let viewer of viewers) {
       let color = color_array[i++ % 5];
