@@ -11,7 +11,7 @@ body {
 
 h1, h2, h3 {
   font-family: 'Patua One', cursive;
-  font-size: 300%;
+  font-size: 250%;
   margin: auto;
 }
 h2 {
@@ -56,8 +56,8 @@ li {
   align-items: center;
   flex-basis: auto;
   flex-grow:1;
-  min-height: 2% !important;
   line-height: 75%;
+  height: 5vh;
 }
 
 li *{
@@ -71,6 +71,8 @@ li *{
 }
 
 #header {
+  max-height: 175px;
+  min-height: 175px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,6 +145,10 @@ input:-webkit-autofill {
   height: 150%;
   background: #2196f3;
   transform: translateX(-100%);
+}
+
+#chat {
+  height: calc(100vh - 175px);
 }
 
 ::selection {

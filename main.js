@@ -8,10 +8,11 @@ function bootstrap()
   // bootstrap initial load
   updateUsers();
   username = document.getElementById("username").value;
+
   document.getElementById("chat").innerHTML = `<iframe frameborder="0"
         scrolling="yes"
         id="chat_embed"
-        src="http://www.twitch.tv/embed/${username}/chat"
+        src="https://www.twitch.tv/embed/${username}/chat"
         height="500"
         width="350">
 </iframe>`;
@@ -48,7 +49,7 @@ function sendUsername()
   document.getElementById("chat").innerHTML = `<iframe frameborder="0"
         scrolling="yes"
         id="chat_embed"
-        src="http://www.twitch.tv/embed/${username}/chat"
+        src="https://www.twitch.tv/embed/${username}/chat"
         height="500"
         width="350">
 </iframe>`;
