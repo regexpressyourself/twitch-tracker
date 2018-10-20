@@ -9,13 +9,7 @@ function bootstrap()
   updateUsers();
   username = document.getElementById("username").value;
 
-  document.getElementById("chat").innerHTML = `<iframe frameborder="0"
-        scrolling="yes"
-        id="chat_embed"
-        src="https://www.twitch.tv/embed/${username}/chat"
-        height="500"
-        width="350">
-</iframe>`;
+  document.getElementById("chat").style.display = "none";
 
   // set up the update cycle
   setInterval( function() { 
@@ -33,9 +27,11 @@ function bootstrap()
 }
 function httpGet(username="" , callback)
 {
+  console.log("ASDFASDF");
   let url = `/get_viewers?username=${username}`;
   let xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() { 
+    console.log(xmlHttp);
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
       callback(xmlHttp.responseText);
   }
@@ -46,6 +42,7 @@ function httpGet(username="" , callback)
 function sendUsername() 
 {
   username = document.getElementById("username").value;
+  document.getElementById("chat").style.display = "block";
   document.getElementById("chat").innerHTML = `<iframe frameborder="0"
         scrolling="yes"
         id="chat_embed"
