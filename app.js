@@ -32,6 +32,7 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
+  app.use('/img', express.static('./img'));
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
