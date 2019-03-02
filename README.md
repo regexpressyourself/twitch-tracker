@@ -1,10 +1,10 @@
 # Twitch Tracker
 
-<img width="500px" src="https://i.imgur.com/T6Ut7mb.png" align="right" />
+<img width="500px" src="https://smessina.com/static/images/sss/tt-1.png" align="right" />
 
 See who's watching your Twitch stream.
 
-[See it live here!](https://www.smessina.com/twitch-tracker)
+[See it live here!](https://twitchtracker.smessina.com/)
 
 ## Table of Contents
 
