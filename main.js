@@ -3,7 +3,7 @@ let hour_count = 0;
 let total_viewer_nums = [];
 let hour_viewer_nums = [];
 
-function bootstrap() 
+function bootstrap()
 {
   // bootstrap initial load
   updateUsers();
@@ -12,8 +12,8 @@ function bootstrap()
   document.getElementById("chat").style.display = "none";
 
   // set up the update cycle
-  setInterval( function() { 
-    updateUsers(); 
+  setInterval( function() {
+    updateUsers();
   }, 10000);
 
   // add listener to input registering "Enter"
@@ -30,27 +30,29 @@ function httpGet(username="" , callback)
   console.log("ASDFASDF");
   let url = `/get_viewers?username=${username}`;
   let xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function() { 
+  xmlHttp.onreadystatechange = function() {
     console.log(xmlHttp);
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
       callback(xmlHttp.responseText);
   }
-  xmlHttp.open("GET", url, true); // true for asynchronous 
+  xmlHttp.open("GET", url, true); // true for asynchronous
   xmlHttp.send(null);
 }
 
-function sendUsername() 
+function sendUsername()
 {
   username = document.getElementById("username").value;
-  document.getElementById("chat").style.display = "block";
-  document.getElementById("chat").innerHTML = `<iframe frameborder="0"
-        scrolling="yes"
-        id="chat_embed"
-        src="https://www.twitch.tv/embed/${username}/chat"
-        height="500"
-        width="350">
-</iframe>`;
-    
+  if (!window.location.pathname.includes('nochat')) {
+    document.getElementById("chat").style.display = "block";
+    document.getElementById("chat").innerHTML = `<iframe frameborder="0"
+          scrolling="yes"
+          id="chat_embed"
+          src="https://www.twitch.tv/embed/${username}/chat"
+          height="500"
+          width="350">
+  </iframe>`;
+  }
+
   total_viewer_nums = [];
   hour_viewer_nums = [];
   updateUsers(username);
@@ -58,7 +60,7 @@ function sendUsername()
 
 
 
-function updateUsers(username="") 
+function updateUsers(username="")
 {
 
   let user_list = [];
@@ -71,6 +73,7 @@ function updateUsers(username="")
 
     // get the viewers and moderators
     let viewers = result.chatters.viewers;
+
     let moderators = result.chatters.moderators;
     let num_viewers = viewers.length;
     num_viewers += moderators.length;
@@ -90,8 +93,8 @@ function updateUsers(username="")
     let i = 0;
     for (let viewer of viewers) {
       let color = color_array[i++ % 5];
-      user_list.push(`<li style="min-height: ${height}%; 
-                    width=${width}; 
+      user_list.push(`<li style="min-height: ${height}%;
+                    width=${width};
                     background-color: ${color}">
                       <p>${viewer}</p>
                     </li>`);
@@ -99,10 +102,10 @@ function updateUsers(username="")
 
     for (let viewer of moderators) {
       let color = color_array[i++ % 5];
-      user_list.push(`<li style="min-height: ${height}%; 
-                    width=${width}; 
-                    background-color: ${color}; 
-                    font-weight: bold;" 
+      user_list.push(`<li style="min-height: ${height}%;
+                    width=${width};
+                    background-color: ${color};
+                    font-weight: bold;"
                     class="mod">
                       <p>${viewer}</p>
                       </li>`);

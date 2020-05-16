@@ -19,7 +19,7 @@ h2 {
 }
 iframe {
   border: none;
-  width: 300px; 
+  width: 300px;
   max-width: 60vw;
   max-height: 100vh;
   height: 98%;
@@ -77,7 +77,7 @@ li *{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}    
+}
 
 
 /* Form Stuff */

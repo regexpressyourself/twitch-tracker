@@ -35,6 +35,10 @@ app.get('/', (req, res) => {
   app.use('/img', express.static('img'));
   res.sendFile(path.join(__dirname, 'index.html'));
 });
+app.get('/nochat', (req, res) => {
+  app.use('/img', express.static('img'));
+  res.sendFile(path.join(__dirname, 'nochat.html'));
+});
 
 app.get('/main.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'main.css'));
