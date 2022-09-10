@@ -47,7 +47,7 @@ function sendUsername()
     document.getElementById("chat").innerHTML = `<iframe frameborder="0"
           scrolling="yes"
           id="chat_embed"
-          src="https://www.twitch.tv/embed/${username}/chat"
+src="https://www.twitch.tv/embed/${username}/chat?parent=twitchtracker.smessina.com"
           height="500"
           width="350">
   </iframe>`;
